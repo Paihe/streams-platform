@@ -25,5 +25,10 @@ class AdminController extends BaseController
         $this->middleware('auth');
 
         parent::__construct();
+
+        $this->middleware(function ($request, $next) {
+                   app()->setLocale('zh-cn');
+                   return $next($request);
+               });
     }
 }
